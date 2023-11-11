@@ -7,22 +7,17 @@ import requests
 from datetime import datetime
 from bson import ObjectId
 
-dotenv_path = join(dirname(__file__), '.env')
+dotenv_path = join(dirname(__file__), ".env")
 load_dotenv(dotenv_path)
 
 MONGODB_URI = os.environ.get("MONGODB_URI")
-DB_NAME =  os.environ.get("DB_NAME")
+DB_NAME = os.environ.get("DB_NAME")
 
 client = MongoClient(MONGODB_URI)
 db = client[DB_NAME]
 
-password = "testku"
-cxn_str = f"mongodb+srv://test:{password}@cluster0.adomazn.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
-client = MongoClient(cxn_str)
-
-db = client.dbsparta_plus_week2
-
 app = Flask(__name__)
+
 
 @app.route("/")
 def main():
